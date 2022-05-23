@@ -1,4 +1,6 @@
-package data.entities;
+package data;
+
+import data.entities.User;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -12,8 +14,9 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {
         try{
             Configuration configuration = new Configuration();
-            configuration.addAnnotatedClass(User.class);
-            return configuration.buildSessionFactory(new StandardServiceRegistryBuilder().build());
+            // configuration.addAnnotatedClass(User.class);
+            // using the xml configuration this is the approach to follow
+            return configuration.buildSessionFactory(new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build());
 
         } catch(Exception e) {
             e.printStackTrace();
