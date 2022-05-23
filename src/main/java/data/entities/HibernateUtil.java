@@ -17,7 +17,7 @@ public class HibernateUtil {
 
         } catch(Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("There was an error building the factory :(")
+            throw new RuntimeException("There was an error building the factory :(");
         }
     }
 
