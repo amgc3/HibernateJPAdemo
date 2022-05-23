@@ -15,7 +15,8 @@ public class HibernateUtil {
         try{
             Configuration configuration = new Configuration();
             configuration.configure();
-            // configuration.addAnnotatedClass(User.class);
+            // TODO figure out why I shill need this
+            configuration.addAnnotatedClass(User.class);
             // using the xml configuration this is the approach to follow
             return configuration.buildSessionFactory(new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build());
 
