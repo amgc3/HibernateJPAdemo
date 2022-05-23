@@ -6,41 +6,47 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="FINANCES_USER")
-public class User {
+@Table(name="finances_user")
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "USER_ID")
+    //user_id bigint NOT NULL GENERATED ALWAYS AS IDENTITY
+    // ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1
+    @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "FIRST_NAME")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "LAST_NAME")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name="ADDRESS")
-    private Address address;
+//    @Column(name="ADDRESS")
+//    private Address address;
 
-    @Column(name = "BIRTH_DATE")
+    @Column(name = "birth_date")
     private Date birthDate;
 
-    @Column(name = "EMAIL_ADDRESS")
+    @Column(name = "email_address")
     private String emailAddress;
 
-    @Column(name = "LAST_UPDATED_DATE")
+    @Column(name = "last_updated_date")
     private Date lastUpdatedDate;
 
-    @Column(name = "LAST_UPDATED_BY")
+    @Column(name = "last_updated_by")
     private String lastUpdatedBy;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
+    @Column(name = "created_date")
     private Date createdDate;
 
-    @Column(name = "CREATED_BY")
-    private String createdBy;
 
     public Long getUserId() {
         return userId;
@@ -66,13 +72,13 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
+//    }
 
     public Date getBirthDate() {
         return birthDate;
