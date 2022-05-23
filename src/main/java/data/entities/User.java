@@ -26,14 +26,6 @@ public class User {
     @Column(name="ADDRESS")
     private Address address;
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
     @Column(name = "BIRTH_DATE")
     private Date birthDate;
 
@@ -72,6 +64,14 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Date getBirthDate() {
